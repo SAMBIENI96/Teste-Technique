@@ -11,8 +11,8 @@ Prototype de matching automatique entre élèves et tuteurs : le parent renseign
 Prérequis : PHP 8.3+, Composer, Node 20+, Docker.
 
 ```bash
-git clone https://github.com/SAMBIENI96/tutor-match.git
-cd tutor-match
+git clone https://github.com/SAMBIENI96/Teste-Technique.git
+cd Teste-Technique
 
 # Base de données PostgreSQL
 cp .env.example .env
