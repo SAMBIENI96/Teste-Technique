@@ -12,7 +12,7 @@ export function Logo() {
           <path d="M22 10 12 5 2 10l10 5 10-5Z" /><path d="M6 12v5c3 2 9 2 12 0v-5" />
         </svg>
       </span>
-      <span className="text-lg font-bold tracking-tight">TutorMatch</span>
+      <span className="text-lg font-bold tracking-tight">Tutor</span>
     </Link>
   )
 }

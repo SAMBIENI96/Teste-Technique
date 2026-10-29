@@ -4,9 +4,9 @@ const escape = (s) => String(s).replace(/[\;,]/g, m => `\\${m}`).replace(/\n/g, 
 
 export function downloadIcs(booking) {
   const lines = [
-    'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//TutorMatch//FR', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
+    'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Tutor//FR', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
     'BEGIN:VEVENT',
-    `UID:${booking.reference}@tutormatch`,
+    `UID:${booking.reference}@tutor`,
     `DTSTAMP:${utc(new Date().toISOString())}`,
     `DTSTART:${utc(booking.starts_at)}`,
     `DTEND:${utc(booking.ends_at)}`,
