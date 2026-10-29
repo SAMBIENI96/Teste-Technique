@@ -1,6 +1,6 @@
 import { m } from 'framer-motion'
 import clsx from 'clsx'
-import { Check } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 import Avatar from '../ui/Avatar'
 import Stars from '../ui/Stars'
 import Tag from '../ui/Tag'
@@ -20,19 +20,27 @@ function Badge({ best, label, className }) {
   )
 }
 
+/** Créneau cliquable : fond blanc, bordure marquée et flèche signalent l'action. */
 function SlotButton({ slot, onClick, className }) {
   return (
     <button
       type="button"
       onClick={onClick}
+      aria-label={`Réserver ${dayLabel(slot.starts_at)} à ${timeLabel(slot.starts_at)}`}
       className={clsx(
-        'flex min-h-11 flex-col rounded-xl border border-line bg-mist px-3 py-2 text-left transition',
-        'hover:border-ink hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink',
+        'group flex min-h-11 items-center justify-between gap-3 rounded-xl border border-line-strong bg-white px-3 py-2 text-left',
+        'shadow-[0_2px_6px_-3px_rgba(31,35,51,0.25)] transition',
+        'hover:border-ink hover:bg-ink active:scale-[.98]',
+        'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink',
         className,
       )}
     >
-      <span className="text-[11.5px] text-muted sm:text-xs">{dayLabel(slot.starts_at)}</span>
-      <span className="text-[15px] font-semibold text-ink">{timeLabel(slot.starts_at)}</span>
+      <span className="flex flex-col">
+        <span className="text-[11.5px] text-muted transition group-hover:text-white/75 sm:text-xs">{dayLabel(slot.starts_at)}</span>
+        <span className="text-[15px] font-semibold text-ink transition group-hover:text-white">{timeLabel(slot.starts_at)}</span>
+      </span>
+      <ArrowRight size={16} aria-hidden="true"
+                  className="shrink-0 text-muted transition group-hover:translate-x-0.5 group-hover:text-white" />
     </button>
   )
 }
@@ -95,7 +103,9 @@ export default function TutorCard({ tutor, best, index, onBook }) {
       </ul>
 
       <div className="flex flex-col gap-2.5 border-t border-line pt-3.5 sm:pt-4">
-        <span className="font-mono text-xs tracking-[0.06em] text-muted">PROCHAINS CRÉNEAUX</span>
+        <span className="font-mono text-xs tracking-[0.06em] text-muted">
+          PROCHAINS CRÉNEAUX <span className="normal-case tracking-normal">· touchez pour réserver</span>
+        </span>
         {/* Mobile : défilement horizontal ; desktop : grille 2 colonnes */}
         <div className="-mx-3.5 flex gap-2 overflow-x-auto px-3.5 pb-0.5 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0">
           {slots.slice(0, PREVIEW).map(s => (
