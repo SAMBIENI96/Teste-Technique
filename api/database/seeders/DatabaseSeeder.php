@@ -65,6 +65,12 @@ class DatabaseSeeder extends Seeder
                     "Historien de formation, je transforme les cours en récits faciles à retenir."],
             ];
 
+            // Portraits fixes, cohérents avec le prénom (même ordre que $tutors)
+            $photos = [
+                'women/44', 'men/32', 'women/68', 'men/46', 'women/90', 'men/75',
+                'women/65', 'men/86', 'women/26', 'men/52', 'women/17', 'men/61',
+            ];
+
             // Fuseau de l'application (Africa/Casablanca) : 17h = 17h pour le parent
             $start = CarbonImmutable::now()->startOfDay()->addDay();
             $hours = [9, 10, 14, 15, 17, 18, 19];
@@ -72,7 +78,7 @@ class DatabaseSeeder extends Seeder
             foreach ($tutors as $i => [$name, $years, $rating, $reviews, $lessons, $spec, $teach, $bio]) {
                 $tutor = Tutor::create([
                     'first_name' => $name,
-                    'photo_url' => 'https://i.pravatar.cc/300?img=' . ($i + 5),
+                    'photo_url' => 'https://randomuser.me/api/portraits/' . $photos[$i] . '.jpg',
                     'bio' => $bio,
                     'years_experience' => $years,
                     'rating' => $rating,
