@@ -10,5 +10,6 @@ services:
       - "127.0.0.1:5432:5432" # base joignable uniquement depuis la machine locale
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./docker/init-test-db.sql:/docker-entrypoint-initdb.d/init-test-db.sql:ro
 volumes:
   pgdata:
