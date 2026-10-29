@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\SlotStatus;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,6 +16,7 @@ class AvailabilitySlot extends Model
         return [
             'starts_at' => 'datetime',
             'ends_at' => 'datetime',
+            'status' => SlotStatus::class,
         ];
     }
 
@@ -25,6 +27,6 @@ class AvailabilitySlot extends Model
 
     public function scopeAvailable(Builder $query): Builder
     {
-        return $query->where('status', 'available');
+        return $query->where('status', SlotStatus::Available);
     }
 }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedInteger('reviews_count')->default(0);
             $table->unsignedInteger('lessons_count')->default(0);
             $table->json('specialties')->nullable(); // ex: ["exam_prep","catch_up"]
-            $table->timestamps();
+            $table->timestampsTz();
         });
     }
 

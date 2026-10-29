@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('parent_email');
             $table->string('student_first_name');
             $table->text('notes')->nullable();
-            $table->timestamps();
+            $table->timestampsTz();
         });
     }
 
