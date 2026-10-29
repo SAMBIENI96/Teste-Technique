@@ -2,6 +2,10 @@
 
 Prototype de matching automatique entre élèves et tuteurs : le parent renseigne le niveau, la matière et les disponibilités de son enfant, consulte les tuteurs compatibles classés par pertinence, puis réserve un créneau confirmé immédiatement, sans intervention d'un administrateur.
 
+## Démo vidéo
+
+▶️ [Voir la démonstration du parcours (2–3 min)](https://drive.google.com/file/d/1gyMCppGLjJhSQ4E0SvVQz_9zBW8MoABB/view?usp=sharing)
+
 ## Installation
 
 Prérequis : PHP 8.3+, Composer, Node 20+, Docker.
