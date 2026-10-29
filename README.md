@@ -70,4 +70,4 @@ Remettre les données de démonstration à zéro : `php artisan migrate:fresh --
 | Frontend | React 19, Vite 8, Tailwind CSS 4, React Router 7, TanStack Query 5, Framer Motion, Axios, Lucide |
 | Backend | Laravel 13 (PHP 8.3+), API REST JSON |
 | Base de données | PostgreSQL 16 (Docker) |
-| Tests | PHPUnit (14 tests : réservation et matching) |
+| Tests | PHPUnit (15 tests : réservation et matching) |

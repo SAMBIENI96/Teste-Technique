@@ -107,6 +107,17 @@ class BookingTest extends TestCase
             ->assertJsonValidationErrors(['slot_id', 'subject_id', 'level_id', 'parent_name', 'parent_email', 'student_first_name']);
     }
 
+    public function test_un_email_invalide_est_refuse(): void
+    {
+        foreach (['pasunemail', 'a@b', 'jean @exemple.com', 'jean@@exemple.com'] as $email) {
+            $this->postJson('/api/bookings', $this->bookingPayload(['parent_email' => $email]))
+                ->assertUnprocessable()
+                ->assertJsonValidationErrors('parent_email');
+        }
+
+        $this->assertDatabaseCount('bookings', 0);
+    }
+
     public function test_une_reservation_se_consulte_par_sa_reference(): void
     {
         $reference = $this->postJson('/api/bookings', $this->bookingPayload())->json('data.reference');
