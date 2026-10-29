@@ -36,8 +36,8 @@ export default function Header({ step }) {
         </nav>
       ) : (
         <nav aria-label="Navigation principale" className="hidden items-center gap-8 font-mono text-sm md:flex">
-          <a href="#etapes" className="text-ink no-underline hover:text-ink-soft">Comment ça marche</a>
-          <a href="#tuteurs" className="text-ink no-underline hover:text-ink-soft">Nos tuteurs</a>
+          <a href="#etapes" className="inline-flex min-h-11 items-center text-ink no-underline hover:text-ink-soft">Comment ça marche</a>
+          <a href="#tuteurs" className="inline-flex min-h-11 items-center text-ink no-underline hover:text-ink-soft">Nos tuteurs</a>
           <a href="#recherche" className="inline-flex min-h-11 items-center rounded-full bg-ink px-5 text-white no-underline hover:bg-ink-soft">
             Réserver un cours
           </a>
