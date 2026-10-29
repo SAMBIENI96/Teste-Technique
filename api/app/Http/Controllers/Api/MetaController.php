@@ -12,7 +12,8 @@ class MetaController extends Controller
     public function __invoke(): array
     {
         return [
-            'subjects' => Subject::orderBy('name')->get(['id', 'name', 'slug', 'icon']),
+            // Ordre éditorial du référentiel : les matières les plus demandées d'abord
+            'subjects' => Subject::orderBy('id')->get(['id', 'name', 'slug', 'icon']),
             'levels'   => Level::orderBy('order')->get(['id', 'name', 'slug']),
         ];
     }
