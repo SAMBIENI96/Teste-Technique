@@ -23,7 +23,7 @@ export default function FeaturedTutors() {
             ? Array.from({ length: 4 }).map((_, i) => <li key={i} className="h-72 animate-pulse rounded-[20px] bg-white/70" />)
             : tutors.slice(0, 4).map(t => (
               <li key={t.id} className="flex flex-col gap-3 rounded-[20px] bg-white p-3 sm:gap-3.5 sm:p-4">
-                <Avatar src={t.photo_url} name={t.first_name} className="aspect-[4/3] w-full rounded-[14px]" />
+                <Avatar seed={t.id} name={t.first_name} className="aspect-[4/3] w-full rounded-[14px]" />
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <Tag tone="rose">{t.subjects[0]}</Tag>
                   <span className="text-[13px] text-muted">{t.years_experience} ans</span>
